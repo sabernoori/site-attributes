@@ -1,5 +1,5 @@
 (() => {
-  const attrs = siteAttributes || {};
+  const attrs = window.siteAttributes || {};
   const all = [...document.querySelectorAll("*")];
 
   const getValue = (name, type) => attrs[`${type}-${name}`] ?? "";
@@ -19,9 +19,9 @@
       return;
     }
 
+    el.style.cursor = "pointer";
     el.setAttribute("role", "link");
     el.setAttribute("tabindex", "0");
-    el.style.cursor = "pointer";
 
     const go = (e) => {
       if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
