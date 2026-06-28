@@ -13,25 +13,21 @@
     return v;
   };
 
-  const makeClickable = (el, href) => {
+  const makeAnchor = (el, href) => {
     if (el.tagName === "A") {
       el.href = href;
       return;
     }
 
-    el.style.cursor = "pointer";
-    el.setAttribute("role", "link");
-    el.setAttribute("tabindex", "0");
+    const a = document.createElement("a");
+    a.href = href;
 
-    const go = (e) => {
-      if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
-      window.location.href = href;
-    };
-
-    el.addEventListener("click", go);
-    el.addEventListener("keydown", (e) => {
-      if (e.key === "Enter" || e.key === " ") go(e);
+    [...el.attributes].forEach(attr => {
+      if (!/^data-(text|link)-/.test(attr.name)) a.setAttribute(attr.name, attr.value);
     });
+
+    a.innerHTML = el.innerHTML;
+    el.replaceWith(a);
   };
 
   const names = new Set();
@@ -54,7 +50,7 @@
       }
 
       if (el.hasAttribute(`data-link-${name}`) && href) {
-        makeClickable(el, href);
+        makeAnchor(el, href);
       }
     });
   });
