@@ -30,10 +30,10 @@ Define your values in one place:
 ```html
 <script>
 window.siteAttributes = {
-  "text-phone": "+989120295053",
+  "text-phone": "+98 XXX XXX XXXX",
   "link-phone": "",
   "text-email": "Send email to us",
-  "link-email": "hello@printpackaginguae.com",
+  "link-email": "hello@site.com",
   "text-instagram": "https://instagram.com/profile"
 };
 </script>
@@ -61,10 +61,10 @@ Paste this into your site or page custom code:
 ```html
 <script>
 window.siteAttributes = {
-  "text-phone": "+989120295053",
+  "text-phone": "+98 XXX XXX XXXX",
   "link-phone": "",
   "text-email": "Send email to us",
-  "link-email": "hello@printpackaginguae.com",
+  "link-email": "hello@site.com",
   "text-instagram": "https://instagram.com/profile"
 };
 </script>
@@ -75,7 +75,9 @@ window.siteAttributes = {
 Host the script on GitHub Pages, a CDN, or any static file host, then include it:
 
 ```html
-<script src="https://your-domain.com/site-attributes.js" defer></script>
+
+<script src="https://sabernoori.github.io/site-attributes/script.js" defer></script>
+
 ```
 
 ### 3. Add attributes in Webflow
@@ -128,10 +130,10 @@ If the matching `link-*` value is empty, the script will use the `text-*` value 
 ```html
 <script>
 window.siteAttributes = {
-  "text-phone": "+989120295053",
+  "text-phone": "+98 XXX XXX XXXX",
   "link-phone": "",
   "text-email": "Send email to us",
-  "link-email": "hello@printpackaginguae.com",
+  "link-email": "hello@site.com",
   "text-instagram": "https://instagram.com/profile"
 };
 </script>
@@ -141,14 +143,14 @@ window.siteAttributes = {
 
 ```html
 <p data-text-phone></p>
-<p data-link-phone class="text-size-medium">Tell us about your project and timeline</p>
+<p data-link-phone class="text-size-medium">Sample Text</p>
 <a data-link-email></a>
 <span data-text-email></span>
 ```
 
 ### Result
 
-- `data-text-phone` becomes `+989120295053`
+- `data-text-phone` becomes `+98 XXX XXX XXXX`
 - `data-link-phone` becomes a clickable phone link
 - `data-link-email` becomes a clickable email link
 - `data-link-instagram` uses the text value if no link is provided
@@ -182,14 +184,14 @@ If the value does not already include a protocol, the script can convert `phone`
 ```html
 <script>
 window.siteAttributes = {
-  "text-phone": "+989120295053",
+  "text-phone": "+98 XXX XXX XXXX",
   "link-phone": "",
-  "text-email": "hello@printpackaginguae.com",
-  "link-email": "hello@printpackaginguae.com"
+  "text-email": "hello@site.com",
+  "link-email": "hello@site.com"
 };
 </script>
 
-<script src="https://your-domain.com/site-attributes.js" defer></script>
+<script src="https://sabernoori.github.io/site-attributes/script.js" defer></script>
 
 <p data-link-phone></p>
 <a data-link-email></a>
